@@ -8,3 +8,4 @@ posts:
 ignore:
   - README.md
   - LICENSE
+  - "*.swp"

@@ -1,5 +1,7 @@
 ---
 layout: default.liquid
+
+title: Nathan Jent
 ---
 ## Blog!
 
