@@ -2,12 +2,10 @@
 site:
   title: cobalt blog
   description: Blog Posts Go Here
-  base_url: http://example.com
+  base_url: https://nathanjent.github.io/
 posts:
   rss: rss.xml
 ignore:
   - README.md
   - LICENSE
   - "*.swp"
-destination: "."
-source: src

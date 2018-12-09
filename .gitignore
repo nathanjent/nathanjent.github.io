@@ -1,2 +1,7 @@
+# Cobalt files
+_site/
+*.xml
+*.html
+
 # Vim
 *.swp
