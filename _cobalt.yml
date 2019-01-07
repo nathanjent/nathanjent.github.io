@@ -1,11 +1,11 @@
-
 site:
-  title: cobalt blog
-  description: Blog Posts Go Here
+  title: Posts from Nathan
+  description: Personal posts from Nathan.
   base_url: https://nathanjent.github.io/
+  data:
+    author: Nathan Jent
 posts:
   rss: rss.xml
 ignore:
   - README.md
   - LICENSE
-  - "*.swp"

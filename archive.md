@@ -1,12 +1,13 @@
 ---
+permalink: /archive.html
 layout: default.liquid
 
 title: Nathan Jent
 ---
-## Blog!
+## Archived Posts
 
 {% for post in collections.posts.pages %}
-{% if post.data.archived != true %}
+{% if post.data.archived %}
 #### {{post.title}}
 
 [{{ post.title }}]({{ post.permalink }})
