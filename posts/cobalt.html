@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Cobalt</title>
+<link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS" />
+<meta name="author" content="Nathan Jent">
+
+    </head>
+    <body>
+        <header class="main-header">
+    <a href="/"><h1>Posts from Nathan</h1></a>
+    <hr>
+</header>
+
+        <nav class="main-menu">
+    <a class="menu-item" href="/about.html">About</a>
+    <a class="menu-item" href="/archive.html">Archive</a>
+    <a class="menu-item icon" href="http://github.com/nathanjent">My Github</a>
+    <a class="menu-item icon" href="/rss.xml">RSS</a>
+    <hr>
+</nav>
+
+        <main class="main-content">
+            <article>
+                <h1>Cobalt</h1>
+                <h1>Cobalt Static Site Generator</h1>
+<p>I have been building this site using <a href="http://cobalt-org.github.io">Cobalt</a></p>
+<p>Cobalt allows me to write my posts using Markdown syntax.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#4f5b66;color:#c0c5ce;">---
+</span><span style="background-color:#2b303b;color:#c0c5ce;">title: Cobalt
+</span><span style="background-color:#2b303b;color:#c0c5ce;">layout: post.liquid
+</span><span style="background-color:#2b303b;color:#c0c5ce;">is_draft: true
+</span><span style="background-color:#2b303b;color:#8fa1b3;">---
+</span><span style="background-color:#2b303b;color:#8fa1b3;"># Cobalt Static Site Generator
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">I have been building this site using </span><span style="background-color:#2b303b;color:#d08770;">[Cobalt](http://cobalt-org.github.io)
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>It then combines my posts with layout files written in <a href="https://shopify.github.io/liquid/">Liquid</a> templates.</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">{% include %}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">{% include %}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;main class=&quot;main-content&quot;&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;article&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;h1&gt;{{page.title }}&lt;/h1&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">        </span><span style="background-color:#2b303b;color:#c0c5ce;">{{page.content }}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/article&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/br&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/br&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/main&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">{% include %}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>Add some CSS which can be broken up using <a href="https://sass-lang.com/">SASS</a> and I've got a full site.</p>
+<p>I could even add some scripts if I wanted to get fancy. Mostly it avoids all the backend configuration. I just write a post
+and build. I could even setup a CI that would automatically build whenever I commit an update if I feel inclined.</p>
+
+            </article>
+            </br>
+            </br>
+            <!-- TODO
+            <comments/>
+            <a href="https://share.link">Share Post</a>
+            -->
+        </main>
+        <footer class="main-footer">
+  <hr>
+  <p>
+    <a href="/license/">CC BY-SA 4.0 / MIT</a>
+    -
+    <a href="https://github.com/cobalt-org/cobalt.rs">Built with Cobalt</a>
+  </p>
+  <br>
+</footer>
+
+    </body>
+</html>
