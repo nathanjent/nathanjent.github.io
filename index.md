@@ -6,9 +6,9 @@ title: Nathan Jent
 ## Blog!
 
 {% for post in collections.posts.pages %}
-{% if post.data.archived != true %}
+{% unless post.data.archived %}
 #### {{post.title}}
 
 [{{ post.title }}]({{ post.permalink }})
-{% endif %}
+{% endunless %}
 {% endfor %}
