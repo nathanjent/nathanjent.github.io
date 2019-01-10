@@ -38,8 +38,9 @@ It then combines my posts with layout files written in [Liquid](https://shopify.
 {{ "{% include "_footer.liquid" "}}%}
 
 ```
+FYI: [You can escape the Liquid template syntax with some extra braces.](http://tesoriere.com/2010/08/25/liquid-code-in-a-liquid-template-with-jekyll/)
 
-Add some CSS which can be broken up using [SASS](https://sass-lang.com/) and I've got a full site.
+I then add some CSS which can be broken up using [SASS](https://sass-lang.com/) and I've got a full site.
 
 I could even add some scripts if I wanted to get fancy. Mostly it avoids all the backend configuration. I just write a post
 and build. I could even setup a CI that would automatically build whenever I commit an update if I feel inclined.
