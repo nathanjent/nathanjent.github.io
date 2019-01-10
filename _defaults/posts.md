@@ -1,10 +1,10 @@
 ---
 layout: post.liquid
 
-title: First Post
+title: A Post
 is_draft: true
 ---
 
-# This is our first Post!
+# This is our Post!
 
-Welcome to the first post ever on cobalt.rs!
+It's great!
