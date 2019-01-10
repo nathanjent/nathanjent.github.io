@@ -1,7 +1,8 @@
 ---
 title: Cobalt
+published_date: "2019-01-10 02:47:06 +0000"
 layout: post.liquid
-is_draft: true
+is_draft: false
 ---
 # Cobalt Static Site Generator
 
