@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: saidgeek/cobalt-deploy-gh-pages
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Cobalt deploy to GitHub page
+        uses: saidgeek/cobalt-deploy-gh-pages@v1.0.0
         with:
           branch: master
           githubToken: ${{ secrets.GITHUBTOKEN }}
