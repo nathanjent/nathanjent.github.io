@@ -1,12 +1,9 @@
 name: CI
-
-on: [push]
-
+on: 
+  - push
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -14,4 +11,4 @@ jobs:
         uses: saidgeek/cobalt-deploy-gh-pages@v1.0.0
         with:
           branch: master
-          githubToken: ${{ secrets.GITHUBTOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
