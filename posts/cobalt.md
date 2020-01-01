@@ -25,8 +25,8 @@ I have been building this site using [Cobalt](http://cobalt-org.github.io)
 It then combines my posts with layout files written in [Liquid](https://shopify.github.io/liquid/) templates.
 
 ```
-{{ "{% include "_header.liquid" "}}%}
-{{ "{% include "_menu.liquid" "}}%}
+&007B;% include "_header.liquid" &007D;
+&007B;% include "_menu.liquid" &007D;
 <main class="main-content">
     <article>
         <h1>{{ "{{page.title "}}}}</h1>
@@ -35,7 +35,7 @@ It then combines my posts with layout files written in [Liquid](https://shopify.
     </br>
     </br>
 </main>
-{{ "{% include "_footer.liquid" "}}%}
+&007B;% include "_footer.liquid" &007D;
 
 ```
 FYI: [You can escape the Liquid template syntax with some extra braces.](http://tesoriere.com/2010/08/25/liquid-code-in-a-liquid-template-with-jekyll/)
