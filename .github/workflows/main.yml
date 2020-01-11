@@ -6,8 +6,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - run: |
-          echo ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ secrets.GITHUB_TOKEN }}
+        name: Token?
       - name: Cobalt deploy to GitHub page
         uses: saidgeek/cobalt-deploy-gh-pages@v1.0.0
         with:
