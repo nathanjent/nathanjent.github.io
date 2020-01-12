@@ -4,9 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master branch
-        uses: actions/checkout@v1
-
       - name: Checkout source branch
         uses: actions/checkout@v1
         with:
@@ -26,6 +23,11 @@ jobs:
       - name: Cobalt deploy to GitHub page
         run: |
           ./cobalt import --branch master --message 'Publish from GitHub Actions ${{ github.event_name }}'
+
+      - name: Pull master
+        run: |
+          git checkout master
+          git pull
 
       - name: Push Published Branch
         uses: ad-m/github-push-action@master
