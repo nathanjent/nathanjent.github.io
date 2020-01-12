@@ -15,10 +15,6 @@ jobs:
           path: downloads
           file: cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
 
-      - name: Extract Cobalt Binary
-        run: |
-          tar -xzf cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
-
       - name: Cobalt deploy to GitHub page
         run: |
           cobalt import --branch master
