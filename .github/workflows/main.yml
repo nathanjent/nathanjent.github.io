@@ -4,6 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v1
+        with:
+          ref: source
+
       - name: Download Cobalt Release
         uses: Legion2/download-release-action@v2.1.0
         with:
@@ -15,17 +20,14 @@ jobs:
         run: |
           tar -xzf cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
 
-      - name: Checkout source branch
-        uses: actions/checkout@v1
-        with:
-          ref: source
-
       - name: Cobalt Build
         run: |
           ./cobalt build 
 
       - name: Checkout master branch
         uses: actions/checkout@v1
+        with:
+          clean: false
 
       - name: Commit build files to master
         run: |
