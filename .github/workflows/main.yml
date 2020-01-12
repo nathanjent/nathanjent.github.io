@@ -28,10 +28,10 @@ jobs:
         run: |
           git checkout master
           rsync -au --exclude '*.gz' --exclude cobalt _site/ .
-          cat <<-IGN > .gitignore
-          _site
-          cobalt
-          *.gz
+          cat > .gitignore <<-IGN
+            _site
+            cobalt
+            *.gz
           IGN
           git add .
           git commit -m "Publish from GitHub Actions - ${{ github.event_name }}
