@@ -28,8 +28,12 @@ jobs:
         run: |
           git checkout master
           rsync -au --exclude '*.gz' --exclude cobalt _site/ .
-          rm -rf _site
-          git add *.css *.html *.js *.xml *.png *.gif *.ico
+          cat <<-IGN > .gitignore
+          _site
+          cobalt
+          *.gz
+          IGN
+          git add .
           git commit -m "Publish from GitHub Actions - ${{ github.event_name }}
 
       - name: Publish to GitHub Pages
