@@ -24,14 +24,10 @@ jobs:
         run: |
           ./cobalt build 
 
-      - name: Checkout master branch
-        uses: actions/checkout@v1
-        with:
-          clean: false
-
       - name: Commit build files to master
         run: |
-          rsync -a _site/ .
+          git checkout master
+          rsync -au _site/ .
           rm -rf _site
           git add *.css *.html *.js *.xml *.png *.gif *.ico
           git commit -m "Publish from GitHub Actions - ${{ github.event_name }}
