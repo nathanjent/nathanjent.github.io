@@ -4,8 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout source branch
         uses: actions/checkout@v1
+        with:
+          ref: source
 
       - name: Download Cobalt Release
         uses: Legion2/download-release-action@v2.1.0
