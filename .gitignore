@@ -2,6 +2,5 @@
 _site/
 *.xml
 *.html
-
-# Vim
-*.swp
+cobalt
+*.tar.gz
