@@ -18,32 +18,18 @@ jobs:
       - name: Checkout source branch
         uses: actions/checkout@v1
         with:
-          path: repo
           ref: source
 
       - name: Cobalt Build
         run: |
-          mkdir -p build
-          ls
-          cd repo
-          ./cobalt build --destination ../build
+          ./cobalt build 
 
       - name: Checkout master branch
         uses: actions/checkout@v1
-        with:
-          path: repo
-
-      - name: Clean Previous Build
-        run: |
-          # Remove items matching file extensions
-          find repo \
-            -iregex '.*\.\(css\|gif\|html\|ico\|js\|png\|xml\)' \
-            -exec rm -r {} +
 
       - name: Commit build files to master
         run: |
-          cp -u -r build/* repo/
-          cd repo
+          mv -u -r _site/* .
           git add *.css *.html *.js *.xml *.png *.gif *.ico
           git commit -m "Publish from GitHub Actions - ${{ github.event_name }}
 
@@ -51,5 +37,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           branch: master
-          directory: repo
           github_token: ${{ secrets.GITHUB_TOKEN }}
