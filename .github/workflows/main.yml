@@ -27,7 +27,7 @@ jobs:
       - name: Pull master
         run: |
           git checkout master
-          git pull
+          git pull origin master
 
       - name: Push Published Branch
         uses: ad-m/github-push-action@master
