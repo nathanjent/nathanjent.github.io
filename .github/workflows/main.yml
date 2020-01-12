@@ -12,14 +12,12 @@ jobs:
         with:
           repository: cobalt-org/cobalt.rs
           tag: 'v0.15.6'
-          path: bin
           file: cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
 
       - name: Extract Cobalt Binary
         run: |
-          cd bin
           tar -xzf cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
 
       - name: Cobalt deploy to GitHub page
         run: |
-          ./bin/cobalt import --branch master
+          ./cobalt import --branch master
