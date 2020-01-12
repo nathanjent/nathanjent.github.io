@@ -24,6 +24,7 @@ jobs:
       - name: Cobalt Build
         run: |
           mkdir -p build
+          ls
           cd repo
           ./cobalt build --destination ../build
 
@@ -34,9 +35,8 @@ jobs:
 
       - name: Clean Previous Build
         run: |
-          cd repo
           # Remove items matching file extensions
-          find . \
+          find repo \
             -iregex '.*\.\(css\|gif\|html\|ico\|js\|png\|xml\)' \
             -exec rm -r {} +
 
