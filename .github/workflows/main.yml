@@ -31,7 +31,7 @@ jobs:
 
       - name: Commit build files to master
         run: |
-          mv -u -r _site/* .
+          mv -u _site/* .
           git add *.css *.html *.js *.xml *.png *.gif *.ico
           git commit -m "Publish from GitHub Actions - ${{ github.event_name }}
 
