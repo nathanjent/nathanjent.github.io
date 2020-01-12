@@ -4,11 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source branch
-        uses: actions/checkout@v1
-        with:
-          ref: source
-
       - name: Download Cobalt Release
         uses: Legion2/download-release-action@v2.1.0
         with:
@@ -20,17 +15,32 @@ jobs:
         run: |
           tar -xzf cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
 
-      - name: Cobalt deploy to GitHub page
-        run: |
-          ./cobalt import --branch master --message 'Publish from GitHub Actions ${{ github.event_name }}'
+      - name: Checkout source branch
+        uses: actions/checkout@v1
+        with:
+          path: source
+          ref: source
 
-      - name: Pull master
-        run: |
-          git checkout master
-          git pull origin master
+      - name: Checkout master branch
+        uses: actions/checkout@v1
+        with:
+          path: build
 
-      - name: Push Published Branch
+      - name: Clean Previous Build
+        run: |
+          cd build
+          # Remove items matching file extension
+          find . -iregex '.*\.\(css\|html\|js\|xml\)' -exec rm -r {} +
+
+      - name: Cobalt Build
+        run: |
+          cd source
+          ../cobalt build --destination ../build
+
+      - name: Publish to GitHub Pages
         uses: ad-m/github-push-action@master
         with:
           branch: master
+          directory: build
+          force: true,
           github_token: ${{ secrets.GITHUB_TOKEN }}
