@@ -42,23 +42,16 @@ is_draft: true
 </span></pre>
 <p>It then combines my posts with layout files written in <a href="https://shopify.github.io/liquid/">Liquid</a> templates.</p>
 <pre style="background-color:#2b303b;">
-<span style="background-color:#2b303b;color:#c0c5ce;">&amp;007B;% include &quot;_header.liquid&quot; &amp;007D;
-&amp;007B;% include &quot;_menu.liquid&quot; &amp;007D;
-&lt;main class=&quot;main-content&quot;&gt;
-    &lt;article&gt;
-        &lt;h1&gt;{{page.title }}&lt;/h1&gt;
-        {{page.content }}
-    &lt;/article&gt;
-    &lt;/br&gt;
-    &lt;/br&gt;
-&lt;/main&gt;
-&amp;007B;% include &quot;_footer.liquid&quot; &amp;007D;
-
+<span style="background-color:#2b303b;color:#c0c5ce;">{% include &quot;_header.liquid&quot; %}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">{% include &quot;_menu.liquid&quot; %}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;main class=&quot;main-content&quot;&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    {{ page.content }}
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;/main&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">{% include &quot;_footer.liquid&quot; %}
 </span></pre>
-<p>FYI: <a href="http://tesoriere.com/2010/08/25/liquid-code-in-a-liquid-template-with-jekyll/">You can escape the Liquid template syntax with some extra braces.</a></p>
+<p>FYI: You can escape the Liquid template syntax with the <code>{% raw %}</code> tag.</p>
 <p>I then add some CSS which can be broken up using <a href="https://sass-lang.com/">SASS</a> and I've got a full site.</p>
-<p>I could even add some scripts if I wanted to get fancy. Mostly it avoids all the backend configuration. I just write a post
-and build. I could even setup a CI that would automatically build whenever I commit an update if I feel inclined.</p>
+<p>I could even add some scripts if I wanted to get fancy. Mostly it avoids all the backend configuration. I just write a post and build. I could even setup a CI that would automatically build whenever I commit an update if I feel inclined.</p>
 
             </article>
             </br>
