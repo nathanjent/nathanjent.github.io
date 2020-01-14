@@ -30,7 +30,7 @@ jobs:
           touch ./_site/.nojekyll
 
       - name: Deploy
-        uses: docker://peaceiris/actions-gh-pages:latest
+        uses: docker://peaceiris/gh-pages:latest
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PUBLISH_BRANCH: master
