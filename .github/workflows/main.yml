@@ -1,7 +1,12 @@
-name: Deploy to GitHub page nathanjent.github.io
-on: [push]
+name: Deploy to GitHub Pages: nathanjent.github.io
+
+on: 
+  push:
+    branches:
+      - source
+
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source branch
@@ -17,24 +22,20 @@ jobs:
           file: cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
 
       - name: Extract Cobalt Binary
-        run: |
-          tar -xzf cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
+        run: tar -xzf cobalt-v0.15.6-x86_64-unknown-linux-gnu.tar.gz
 
-      - name: Cobalt Build
+      - name: Build
         run: |
           ./cobalt build 
+          touch ./_site/.nojekyll
 
-      - name: Commit build files to master
-        run: |
-          git checkout master
-          rsync -au --exclude='*.gz' --exclude='cobalt' _site/ .
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m 'Publish from GitHub Actions event: ${{ github.event_name }}'
-
-      - name: Publish to GitHub Pages
-        uses: ad-m/github-push-action@master
+      - name: Deploy
+        uses: docker://peaceiris/actions-gh-pages:latest
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: master
+          PUBLISH_DIR: ./_site
         with:
-          branch: master
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          emptyCommits: false
+          username: actions
+          useremail: actions@nathanjent.github.com
