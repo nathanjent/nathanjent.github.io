@@ -28,6 +28,8 @@ jobs:
         run: |
           ./cobalt build 
           touch ./_site/.nojekyll
+          # remove cobalt binary and downloads before deploy
+          rm -f cobalt*
 
       - name: Deploy
         uses: docker://peaceiris/gh-pages:latest
